@@ -2,9 +2,8 @@
 #include <string>
 #include <string_view>
 
-#include <webview.h>
-
-#include <index.html.h>
+#include "index.html.h"
+#include "webview.h"
 
 const auto document =
     std::string(reinterpret_cast<const char *>(embed_index_html::data));

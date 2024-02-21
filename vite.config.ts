@@ -1,7 +1,7 @@
-import { defineConfig, Plugin } from "vite";
-import preact from "@preact/preset-vite";
-import { createHtmlPlugin } from "vite-plugin-html";
-import { viteSingleFile } from "vite-plugin-singlefile";
+import { defineConfig, Plugin } from "vite"
+import preact from "@preact/preset-vite"
+import { createHtmlPlugin } from "vite-plugin-html"
+import { viteSingleFile } from "vite-plugin-singlefile"
 
 const cppHeaderByteEmbed: () => Plugin = () => {
   return {
@@ -27,12 +27,12 @@ const cppHeaderByteEmbed: () => Plugin = () => {
           bytes = bundle.source
         }
 
-        const source = `#include <cstdint>\nnamespace ${namespaceName} { constexpr const uint8_t data[] = {${bytes.join(",")}}; }`
+        const source = `#include <cstdint>\nnamespace ${namespaceName} {\nconstexpr const uint8_t data[] = {${bytes.join(",")}};\nconstexpr const uint64_t length = ${bytes.length};\n}\n`
 
         bundle.fileName = fileName
         bundle.source = source
       }
-    }
+    },
   }
 }
 
@@ -42,7 +42,7 @@ export default defineConfig({
     preact(),
     viteSingleFile(),
     createHtmlPlugin({ minify: true }),
-    cppHeaderByteEmbed()
+    cppHeaderByteEmbed(),
   ],
   root: "src/web",
   build: {
@@ -55,4 +55,4 @@ export default defineConfig({
       },
     },
   },
-});
+})

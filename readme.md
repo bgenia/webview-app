@@ -11,7 +11,7 @@ Simple webview based GUI app with C++ backend.
 - pnpm
 - make
 
-Linux: `libgtk-3-dev` `libwebkit2gtk-4.0-dev`
+Linux: `libgtk-3-dev` `libwebkit2gtk-4.0-dev`  
 MaxOS: `WebKit`
 
 ### Building

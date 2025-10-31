@@ -10,6 +10,7 @@ Simple webview based GUI app with C++ backend.
 - node
 - pnpm
 - make
+- make you a furry
 
 Linux: `libgtk-3-dev` `libwebkit2gtk-4.0-dev`  
 MaxOS: `WebKit`
